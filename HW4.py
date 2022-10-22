@@ -1,3 +1,7 @@
+# 1
+print("#1")
+
+
 class Vehicle():
     def __init__(self, max_speed, mileage):
         self.max_speed = max_speed
@@ -13,6 +17,10 @@ class Vehicle():
         print('mileage')
 
 
+# 2
+print("#2")
+
+
 class Bus(Vehicle):
     def __init__(self, max_speed, mileage):
         super().__init__(max_speed, mileage)
@@ -21,12 +29,18 @@ class Bus(Vehicle):
         pass
 
 
+# 3
+print("#3")
 print(issubclass(Bus, Vehicle))
 
+# 4
+print("#4")
 School_bus = Bus(80, 14235)
-
 print(isinstance(School_bus, Bus), isinstance(School_bus, Vehicle))
 
+
+# 5
+print("#5")
 
 class School():
     def __init__(self, get_school_id, number_of_students):
@@ -39,7 +53,8 @@ class School():
     def main_subject(self):
         print('Main')
 
-
+#6
+print("#6")
 class school_bus2(Bus, School):
     def __init__(self, get_school_id, number_of_students, max_speed, mileage):
         # super().__init__(max_speed, mileage)
@@ -59,16 +74,16 @@ class school_bus2(Bus, School):
         print('His mileage is -', self.mileage)
 
 
-kBus = school_bus2(1, 300, 80, 12312)
-kBus.info()
-
-
+# 7
+print("#7")
 class bear():
     def __init__(self):
         pass
 
     def eat(self):
         print('Bear eat')
+
+
 bear()
 
 
@@ -78,14 +93,34 @@ class wolf():
 
     def eat(self):
         print('Wolf eat')
+
+
 wolf()
-
-
 
 Bear = bear()
 
 Wolf = wolf()
 
-
 for animal in (Bear, Wolf):
     animal.eat()
+
+# 8*
+print("#8*")
+
+
+class City:
+    def __init__(self, name, population):
+        self.name = name
+        self.population = population
+
+    def __lt__(self, other=1500):
+        if other < self.population:
+            return f'{self.name} has {self.population} inhabitants.'
+        else:
+            return 'Your city is too small'
+
+
+Lutsk = City('Lutsk', 1600)
+Kovel = City('Kyiv', 1200)
+print(Lutsk.__lt__())
+print(Kovel.__lt__())
