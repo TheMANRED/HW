@@ -219,16 +219,16 @@ Person.age = 15
 print(Person.age)
 
 # 10.
-
-
-class Student:
-    """
-    Add an 'email' attribute of the object student and set its value
-    Assign the new attribute to 'student_email' variable and print it by using getattr
-    """
-    id = 0
-    name = ""
-
-    def __init__(self, id, name):
-        self.id = id
-        self.name = name
+# class Student:
+#     """
+#     Add an 'email' attribute of the object student and set its value
+#     Assign the new attribute to 'student_email' variable and print it by using getattr
+#     """
+#     id = 0
+#     name = ""
+# 
+#     def __init__(self, id, name):
+#         self.id = id
+#         self.name = name
+        
+ # Не зрозумів суті завдання
