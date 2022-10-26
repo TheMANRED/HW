@@ -67,6 +67,9 @@ class school_bus2(Bus, School):
 
         pass
 
+    def bus_school_color(self):
+        print("school bus color")
+
     def info(self):
         print('School id is -', self.get_school_id)
         print('Number of students is -', self.number_of_students)
