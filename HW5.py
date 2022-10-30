@@ -132,7 +132,7 @@ class Concert:
 
     def visitors_count(self, visitors_count):
         if self.max_visitors_num < visitors_count:
-            visitors_count = self.max_visitors_num
+            #visitors_count = self.max_visitors_num
             return self.max_visitors_num
         else:
             return visitors_count
