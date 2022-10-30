@@ -71,3 +71,93 @@ print('\n#3\n')
 g = (number * number for number in range(10))
 for elem in g:
     print(elem)
+    
+# 4. Create an interface for the Laptop with the next methods: Screen, Keyboard, Touchpad, WebCam, Ports, Dynamics
+# and create an HPLaptop class by using your interface.
+
+from abc import abstractmethod, ABC
+
+
+class Laptop(ABC):
+
+    @abstractmethod
+    def Screen(self, screen: str):
+        raise NotImplementedError
+
+    @abstractmethod
+    def Keyboard(self, key: str):
+        raise NotImplementedError
+
+    @abstractmethod
+    def Touchpad(self, tpad: str):
+        raise NotImplementedError
+
+    @abstractmethod
+    def WebCam(self, wcam: str):
+        raise NotImplementedError
+
+    @abstractmethod
+    def Ports(self, ports: str):
+        raise NotImplementedError
+
+    @abstractmethod
+    def Dynamics(self, dynamics: str):
+        raise NotImplementedError
+
+
+class HPlaptop(Laptop):
+
+    def Screen(self, screen: str):
+        pass
+
+    def Keyboard(self, key: str):
+        pass
+
+    def Touchpad(self, tpad: str):
+        pass
+
+    def WebCam(self, wcam: str):
+        pass
+
+    def Ports(self, ports: str):
+        pass
+
+    def Dynamics(self, dynamics: str):
+        pass
+
+
+# 5. Create an abstract class for the Car with the next methods: drive, stop, open_door, close_door, turn_on_light,
+# turn_off_light, enable_radio, disable_radio, where drive and stop will be predefined with some realization, all others
+# should be abstract.
+
+class Car(ABC):
+
+    def drive(self):
+        print('i\'m driving')
+
+    def stop(self):
+        print('i\'m stopping')
+
+    @abstractmethod
+    def open_door(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def close_door(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def turn_on_light(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def turn_off_light(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def enable_radio(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def disable_radio(self):
+        raise NotImplementedError
