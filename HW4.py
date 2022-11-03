@@ -123,7 +123,6 @@ class City:
             cls.name = name
             cls.population = population
             return super(City, cls).__new__(cls)
-            # return print(f'{name} has {population} inhabitants')
         else:
             return print(f'The {name} is too small')
 
