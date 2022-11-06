@@ -113,7 +113,7 @@ pasta3 = Pasta.carbonara()
 print(pasta3.ingredients)
 
 
-# 5*.
+# *5.1
 # class Concert:
 #     """
 #     Make class, which has max_visitors_num attribute and its instances will have visitors_count attribute.
@@ -132,7 +132,7 @@ class Concert:
 
     def visitors_count(self, visitors_count):
         if self.max_visitors_num < visitors_count:
-            #visitors_count = self.max_visitors_num
+            visitors_count = self.max_visitors_num
             return self.max_visitors_num
         else:
             return visitors_count
@@ -140,6 +140,23 @@ class Concert:
 
 concert = Concert(50)
 print(concert.visitors_count(30))
+
+#*5.2
+
+class Concert:
+    max_visitor_num = None
+
+    def __setattr__(self, key, value):
+        if key == "visitors_count" and value < self.max_visitor_num:
+            return object.__setattr__(self, key, value)
+        else:
+            return object.__setattr__(self, key, self.max_visitor_num)
+
+
+Concert.max_visitor_num = 50
+concert = Concert()
+concert.visitors_count = 30
+print(concert.visitors_count)
 
 
 # 6.

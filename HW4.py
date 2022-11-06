@@ -2,7 +2,7 @@
 print("#1")
 
 
-class Vehicle():
+class Vehicle:
     def __init__(self, max_speed, mileage):
         self.max_speed = max_speed
         self.mileage = mileage
@@ -35,27 +35,30 @@ print(issubclass(Bus, Vehicle))
 
 # 4
 print("#4")
-School_bus = Bus(80, 14235)
-print(isinstance(School_bus, Bus), isinstance(School_bus, Vehicle))
-
+SchoolBus = Bus(80, 14235)
+print(isinstance(SchoolBus, Bus), isinstance(SchoolBus, Vehicle))
 
 # 5
 print("#5")
 
-class School():
+
+class School:
     def __init__(self, get_school_id, number_of_students):
         self.get_school_id = get_school_id
         self.number_of_students = number_of_students
 
-    def school_adress(self):
+    def shool_adress(self):
         print('Cursor education')
 
     def main_subject(self):
         print('Main')
 
-#6
+
+# 6
 print("#6")
-class school_bus2(Bus, School):
+
+
+class SchoolBus2(Bus, School):
     def __init__(self, get_school_id, number_of_students, max_speed, mileage):
         # super().__init__(max_speed, mileage)
         School.__init__(self, get_school_id, number_of_students)
@@ -79,7 +82,9 @@ class school_bus2(Bus, School):
 
 # 7
 print("#7")
-class bear():
+
+
+class Bear:
     def __init__(self):
         pass
 
@@ -87,10 +92,10 @@ class bear():
         print('Bear eat')
 
 
-bear()
+Bear()
 
 
-class wolf():
+class Wolf:
     def __init__(self):
         pass
 
@@ -98,32 +103,35 @@ class wolf():
         print('Wolf eat')
 
 
-wolf()
+Wolf()
 
-Bear = bear()
+bear = Bear()
 
-Wolf = wolf()
+wolf = Wolf()
 
-for animal in (Bear, Wolf):
-    animal.eat()
+for Animal in (bear, wolf):
+    Animal.eat()
 
 # 8*
-print("#8*")
+print("#8*\n")
 
 
 class City:
-    def __init__(self, name, population):
-        self.name = name
-        self.population = population
+    def __new__(cls, name: str, population: int):
 
-    def __lt__(self, other=1500):
-        if other < self.population:
-            return f'{self.name} has {self.population} inhabitants.'
+        if population > 1500:
+            cls.name = name
+            cls.population = population
+            return super(City, cls).__new__(cls)
         else:
-            return 'Your city is too small'
+            return print(f'The {name} is too small')
+
+    def info(self):
+        print(f'{self.name} has {self.population} inhabitants')
 
 
-Lutsk = City('Lutsk', 1600)
-Kovel = City('Kyiv', 1200)
-print(Lutsk.__lt__())
-print(Kovel.__lt__())
+Lutsk = City('Lutsk', 1501)
+Lutsk.info()
+
+Kovel = City('Kovel', 1200)
+Kovel.info()
