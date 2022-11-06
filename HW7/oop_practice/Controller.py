@@ -36,7 +36,7 @@ class Controller:
             else:
                 print("\nWrong choose!\n")
 
-# ----------------------------------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------------------------------------------
 
     @classmethod
     def new_plant(cls):
@@ -96,34 +96,6 @@ class Controller:
         Employee.delete(id)
 
 
-    # @classmethod
-    # def menu(cls):
-    #     while True:
-    #         print("1. Add new plant \n"
-    #               "2. Get all plants\n"
-    #               "3. Get plant by id\n"
-    #               "4. Delete plant by id\n"
-    #               "5. Add new employee\n"
-    #               "6. Get all employee\n"
-    #               "7. Get employee by id\n"
-    #               "8. Delete employee by id\n"
-    #               )
-    #         flag = int(input("Choose: "))
-    #
-    #         if flag == 1:
-    #             cls.new_plant()
-    #         elif flag == 2:
-    #             cls.get_all_plants()
-    #         elif flag == 3:
-    #             cls.get_plants_by_id()
-    #         elif flag == 4:
-    #             cls.delete_plant_by_id()
-    #         elif flag == 5:
-    #             cls.add_new_employee()
-    #         elif flag == 6:
-    #             cls.get_all_employee()
-    #         elif flag == 7:
-    #             cls.get_employee_by_id()
-    #         elif flag == 8:
-    #             cls.delete_employee_by_id()
+
+
 
