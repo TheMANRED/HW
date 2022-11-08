@@ -1,4 +1,4 @@
-from models.models import Plant, Employee
+from models.models import Plant, Employee, Salon
 
 
 class Controller:
@@ -14,6 +14,10 @@ class Controller:
                   "6. Get all employee\n"
                   "7. Get employee by id\n"
                   "8. Delete employee by id\n"
+                  "9. Add new salon\n"
+                  "10. Get all salons\n"
+                  "11. Get salon by id\n"
+                  "12. Delete salon by id\n"
                   )
             flag = int(input("Choose: "))
 
@@ -33,6 +37,15 @@ class Controller:
                 cls.get_employee_by_id()
             elif flag == 8:
                 cls.delete_employee_by_id()
+            elif flag == 9:
+                cls.new_salon()
+            elif flag == 10:
+                cls.get_all_salons()
+            elif flag == 11:
+                cls.get_salon_by_id()
+            elif flag == 12:
+                cls.delete_salon_by_id()
+
             else:
                 print("\nWrong choose!\n")
 
@@ -71,7 +84,11 @@ class Controller:
         name = input("Type name of employee: ")
         email = input("Type email of employee: ")
         plant_id = int(input("Type id of plant: "))
-        employee = Employee(name, email, plant_id)
+        salon_name = str(input("Type name of salon: "))
+        employee = Employee(name, email, plant_id, salon_name)
+        salon = Salon.get_by_name(salon_name)
+        if not salon:
+            raise Exception('Salon doesnt find')
         employee.save()
 
     @classmethod
@@ -94,6 +111,34 @@ class Controller:
     def delete_employee_by_id(cls):
         id = int(input('Type id of employee: '))
         Employee.delete(id)
+
+    @classmethod
+    def new_salon(cls):
+        name = input("Type name of new salon: ")
+        location = input("Type location of salon: ")
+        salon = Salon(name, location)
+        salon.save()
+
+    @classmethod
+    def get_all_salons(cls):
+        salons = Salon.get_all()
+        for salon in salons:
+            print(salon["id"])
+            print(salon["name"])
+            print(salon["location"])
+
+    @classmethod
+    def get_salon_by_id(cls):
+        id = int(input('Type id of salon: '))
+        salon = Salon.get_by_id(id)
+        print(salon["id"])
+        print(salon["name"])
+        print(salon["location"])
+
+    @classmethod
+    def delete_salon_by_id(cls):
+        id = int(input('Type id of salon which you want to delete: '))
+        Salon.delete(id)
 
 
 

@@ -48,3 +48,10 @@ class Model(ABC):
                 del instances[i]
                 break
         cls.save_data_to_file(instances, "database/" + cls.file)
+
+    @classmethod
+    def get_by_name(cls, name):
+        instances = cls.get_data("database/" + cls.file)
+        for instance in instances:
+            if instance["name"] == name:
+                return instance
