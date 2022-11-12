@@ -49,7 +49,7 @@ class Employee:
         self._balance = self._rate * self.days()
         return self._balance
 
-    @timer
+    @timer("update rate")
     def update_rate(self, rate):
         self._rate = rate
         self.balance = self._recalculate_balance()
@@ -89,11 +89,11 @@ class Employee:
         _salary = temp - self.taxes_pay
         return _salary
 
-    # @timer(func_name="Show table")
     @classmethod
-    def show_table(cls):
-        cls.show_header()
+    @timer("show_table")
+    def show_table(self):
+        self.show_header()
         for emp in Employee.employees:
-            print(cls.ROW_FORMAT.format(emp.name, emp.balance, emp.taxes_pay, emp.salary))
-            cls.show_line()
+            print(self.ROW_FORMAT.format(emp.name, emp.balance, emp.taxes_pay, emp.salary))
+            self.show_line()
         print('\n\n\n\n')
